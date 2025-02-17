@@ -1,0 +1,40 @@
+<form id="outingForm" action="submit_outing_request.php" method="POST">
+    <div class="input-container">
+        <i class="fas fa-user icon"></i>
+        <input type="text" placeholder="Registration no" name="name" required>
+    </div>
+    <div class="input-container">
+        <i class="fas fa-bed icon"></i>
+        <input type="text" placeholder="Room Number" name="room_number" required>
+    </div>
+    <div class="input-container">
+        <i class="fas fa-map-marker-alt icon"></i>
+        <input type="text" placeholder="Place of Going" name="place_of_going" required>
+    </div>
+    <div class="input-container">
+        <i class="fas fa-calendar-alt icon"></i>
+        <select name="day_of_going" required>
+            <option value="">Day of Going</option>
+            <option value="today">Today</option>
+            <option value="tomorrow">Tomorrow</option>
+            <option value="day_after">Day After</option>
+        </select>
+    </div>
+    <div class="input-container">
+        <i class="fas fa-clock icon"></i>
+        <input type="time" name="time_of_going" required>
+    </div>
+    <div class="input-container">
+        <i class="fas fa-user-friends icon"></i>
+        <select name="recipient" required>
+            <option value="" disabled selected>To Whom the Message Will Be Sent</option>
+            <option value="father">Father</option>
+            <option value="mother">Mother</option>
+        </select>
+    </div>
+    <div class="input-container">
+        <i class="fas fa-pen icon"></i>
+        <input type="text" placeholder="Reason for Going Home" name="reason" required>
+    </div>
+    <button type="submit" class="button"><i class="fas fa-paper-plane icon"></i> Submit</button>
+</form>
