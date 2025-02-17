@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outing Request Response</title>
+    <style>
+       /* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Form Container */
+form {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center; /* Ensures all text is centered */
+}
+
+/* Heading */
+h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Labels */
+label {
+    display: block;
+    font-weight: bold;
+    margin: 10px 0 5px;
+}
+
+/* Inputs */
+input[type="date"], 
+input[type="time"], 
+input[type="text"], 
+input[type="number"], 
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background: #f9f9f9;
+    text-align: center;
+}
+
+/* Readonly Inputs */
+input[readonly] {
+    background: #eaeaea;
+    cursor: not-allowed;
+}
+
+/* Radio Group */
+.radio-group {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 10px 0;
+}
+
+.radio-group label {
+    font-size: 16px;
+}
+
+/* Submit Button */
+button {
+    width: 100%;
+    padding: 10px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+button:hover {
+    background: #45a049;
+}
+
+    </style>
+</head>
+<body>
+
+    <form action="process_response.php" method="POST">
+        <h3>Outing Request Response</h3>  <!-- Moved inside the form -->
+
+        <label for="outing_date">Outing Date:</label>
+        <input type="date" id="outing_date" name="outing_date" required readonly value="2025-02-17">
+
+        <label for="outing_time">Outing Time:</label>
+        <input type="time" id="outing_time" name="outing_time" required readonly value="14:00">
+
+        <label>Are you accepting your child to come home?</label>
+        <div class="radio-group">
+            <label><input type="radio" name="acceptance" value="1" required> Yes</label>
+            <label><input type="radio" name="acceptance" value="0" required> No</label>
+        </div>
+
+        <!-- Get the unique ID from the URL -->
+        <input type="hidden" name="unique_id" value="<?php echo $_GET['unique_id']; ?>">
+
+        <button type="submit">Submit Response</button>
+    </form>
+
+</body>
+</html>
